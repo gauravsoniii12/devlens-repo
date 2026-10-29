@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevLens</title>
+  </head>
+  <body>
+    <main class="panel">
+      <header class="heading">
+        <div class="brand-mark" aria-hidden="true">D</div>
+        <div>
+          <p class="eyebrow">BUG &amp; STATE REPORTER</p>
+          <h1>DevLens</h1>
+        </div>
+      </header>
+
+      <p class="intro">DevLens monitors pages as they load. Reproduce the issue, then generate a report with a screenshot and captured errors.</p>
+
+      <div class="privacy-note">
+        <span class="privacy-dot" aria-hidden="true"></span>
+        Monitors pages you visit. Diagnostics stay on this device.
+      </div>
+
+      <section class="actions" aria-label="Capture controls">
+        <button id="start-capture" class="button button-primary" type="button">Start on this page</button>
+        <button id="generate-report" class="button button-secondary" type="button">Generate report</button>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite">Ready when you are.</p>
+
+      <section id="report-section" class="report-section" hidden>
+        <div class="report-heading">
+          <h2>Draft report</h2>
+          <div class="report-actions">
+            <button id="copy-report" class="text-button" type="button">Copy</button>
+            <button id="download-report" class="text-button" type="button">Download</button>
+            <button id="download-screenshot" class="text-button" type="button" disabled>Save screenshot</button>
+          </div>
+        </div>
+        <textarea id="report" aria-label="Generated bug report" readonly spellcheck="false"></textarea>
+        <div id="screenshot-preview" class="screenshot-preview" hidden>
+          <p>Webpage screenshot with DevLens diagnostics appended (stored locally; not a Chrome DevTools screenshot)</p>
+          <img id="screenshot" alt="Captured browser viewport" />
+        </div>
+      </section>
+
+      <p class="footnote">If this page was already open when DevLens was installed, reload it before reproducing the issue. Review reports and screenshots before sharing; page text and request bodies are not collected.</p>
+    </main>
+    <script type="module" src="/src/popup.ts"></script>
+  </body>
+</html>
